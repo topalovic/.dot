@@ -5,10 +5,10 @@ set -eu
 # Hardcode path to keep Cthulhu away
 cd ~/.dot
 
-dotfiles=$(find files -name "*.dot")
+dotfiles=$(find files -name "dot.*")
 
 for file in $dotfiles; do
-  basename=.$(basename $file .dot)
+  basename=${file##*dot}
   target="$HOME/$basename"
 
   if [ -h "$target" ]; then
