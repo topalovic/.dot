@@ -29,6 +29,8 @@
 --type-add=ruby:ext:ru,rabl,builder
 --type-add=css:ext:sass,scss,less
 --type-set=coffee:ext:coffee
+--type-set=md:ext:md,markdown
+--type-set=markdown:ext:md,markdown
 --type-set=log:ext:log
 
 # Ignored folders
