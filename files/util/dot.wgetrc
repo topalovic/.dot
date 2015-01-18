@@ -1,0 +1,23 @@
+# Go about as FF on Windows
+user-agent = Mozilla/5.0 (Windows NT 6.3; rv:36.0) Gecko/20100101 Firefox/36.0
+
+# No robots, thanks
+robots = off
+
+# Do not go up in the directory structure when downloading recursively
+no_parent = on
+
+# Use the server-provided last modification date, if available
+timestamping = on
+
+# Wait 30 seconds before timing out
+timeout = 30
+
+# Retry a few times when a download fails
+tries = 3
+
+# Use last component of a redirection URL for local file name
+trust_server_names = on
+
+# Print the HTTP and FTP server responses
+server_response = on

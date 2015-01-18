@@ -1,0 +1,5 @@
+# Go about as FF on Windows
+user-agent = "Mozilla/5.0 (Windows NT 6.3; rv:36.0) Gecko/20100101 Firefox/36.0"
+
+# Wait 30 seconds before timing out
+connect-timeout = 30
