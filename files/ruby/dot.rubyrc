@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+
+module RubyRC
+  extend self
+
+  # Quick benchmarking
+  def bench(n = 100, &block)
+    require 'benchmark'
+
+    Benchmark.bmbm do |b|
+      b.report {n.times &block}
+    end
+    nil
+  end
+
+  # "Seed" structures to play with
+
+  def abc
+    ('a'..'z').to_a
+  end
+
+  def gen_rand(n = 10)
+    rand 1..n
+  end
+
+  def gen_array(n = 10)
+    (1..n).to_a
+  end
+
+  def gen_rand_array(n = 10, r = 10)
+    Array.new(n) { rand 1..r }
+  end
+
+  def gen_hash(n=5)
+    abc.take(n).reduce({}) do |acc, letter|
+      acc[letter.to_sym] = letter
+      acc
+    end
+  end
+
+  # And some handy aliases
+  aliases = {
+    :r  => :gen_rand,
+    :a  => :gen_array,
+    :ra => :gen_rand_array,
+    :h  => :gen_hash
+  }
+  aliases.each { |a, m| alias_method a, m unless self.method_defined? a }
+end
