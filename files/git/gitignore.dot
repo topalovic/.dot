@@ -1,0 +1,70 @@
+# OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+.AppleDB
+.AppleDesktop
+.apdisk
+.Spotlight-V100
+.Trashes
+.fseventsd
+Icon^M^M
+
+# Emacs
+*~
+.\#*
+\#*\#
+*.elc
+*_flymake.*
+auto-save-list
+
+# Other VCS
+.svn/
+.hg/
+.hgignore
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Ruby
+/.yardoc/
+/_yardoc/
+/rdoc/
+capybara-*.html
+
+# Sass
+.sass-cache
+*.css.map

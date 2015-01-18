@@ -1,0 +1,27 @@
+[include]
+  path = ~/.private/gitconfig
+
+[core]
+  excludesfile = ~/.gitignore
+  # todo: editor
+
+[push]
+  default = current
+
+[pull]
+  ff = only
+
+[merge]
+  # todo: merge tool
+
+[alias]
+  br = branch
+  co = checkout
+  cl = clone --recursive
+  st = status --short --branch
+  ll = log --stat --abbrev-commit
+  # todo: pretty log with graph
+  unstage  = reset HEAD --
+  uncommit = reset --soft HEAD^ --
+  unamend  = reset --soft HEAD@{1} --
+  aliases = !git config --get-regexp alias | cut -c 7- | sed 's| | => |'
