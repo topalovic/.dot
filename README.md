@@ -3,20 +3,20 @@ Nikola's dotfiles
 
 ## To install
 
-From your home directory, run the following:
+Run the following in your home directory:
 
 ```sh
-git clone https://github.com/topalovic/.dot
-.dot/setup
+$ git clone https://github.com/topalovic/.dot
+$ .dot/setup
 ```
 
-Bam. Done.
+:facepunch: Bam. Done.
 
 
 ## To customize
 
 The setup script will symlink the appropriate files in `.dot` to your home
-directory. All further hacking should take place within `~/.dot/files`.
+directory. All further hacking should take place in `~/.dot/files`.
 
 To configure git, create `~/.private/gitconfig` containing your private info:
 
@@ -26,8 +26,8 @@ To configure git, create `~/.private/gitconfig` containing your private info:
   email = nikola@example.org
 
 [github]
-  user = topalovic
-  token =  <github-token>
+  user  = topalovic
+  token = <github-token>
 ```
 
 
@@ -36,7 +36,7 @@ To configure git, create `~/.private/gitconfig` containing your private info:
 Just run the unlink script:
 
 ```sh
-.dot/unlink
+$ .dot/unlink
 ```
 
 This will remove all recognized dotfile links from your home folder.
