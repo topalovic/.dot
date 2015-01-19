@@ -37,6 +37,7 @@
 --ignore-dir=.bundle
 --ignore-dir=public/assets/
 --ignore-dir=public/uploads/
---ignore-dir=vendor
---ignore-dir=tmp
---ignore-dir=log
+--ignore-dir=/coverage
+--ignore-dir=/vendor
+--ignore-dir=/tmp
+--ignore-dir=/log
