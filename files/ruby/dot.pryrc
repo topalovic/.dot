@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 # Some common tools
-%w[awesome_print pry-nav pry-remote].each do |file|
+%w[awesome_print pry-remote].each do |file|
   begin
     require file
   rescue LoadError
@@ -13,6 +13,18 @@ begin
   load File.expand_path("~/.rubyrc")
   include RubyRC
 rescue LoadError
+end
+
+if defined?(PryByebug)
+  Pry.commands.alias_command 'cc', 'continue'
+  Pry.commands.alias_command 'ss', 'step'
+  Pry.commands.alias_command 'nn', 'next'
+  Pry.commands.alias_command 'ff', 'finish'
+
+  # Hit Enter to repeat last command
+  Pry::Commands.command /^$/, "repeat last command" do
+    _pry_.run_command Pry.history.to_a.last
+  end
 end
 
 # Display project/folder name in prompt

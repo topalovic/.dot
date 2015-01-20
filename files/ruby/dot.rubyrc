@@ -39,11 +39,21 @@ module RubyRC
   end
 
   # And some handy aliases
-  aliases = {
+  GEN_ALIASES = {
     :r  => :gen_rand,
     :a  => :gen_array,
-    :ra => :gen_rand_array,
+    :rr => :gen_rand_array,
     :h  => :gen_hash
   }
-  aliases.each { |a, m| alias_method a, m unless self.method_defined? a }
+
+  def self.included(obj)
+
+    # Set aliases but don't override anything.
+    # TODO :register_alias, :aliases_banner perhaps?
+    GEN_ALIASES.each do |_a, _m|
+      unless (obj.instance_eval(_a.to_s) rescue false)
+        obj.send :alias_method, _a, _m
+      end
+    end
+  end
 end
