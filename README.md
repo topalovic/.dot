@@ -18,7 +18,7 @@ $ .dot/setup
 The setup script will symlink the appropriate files in `.dot` to your home
 directory. All further hacking should take place in `~/.dot/files`.
 
-To configure git, create `~/.private/gitconfig` containing your private info:
+To configure git, set up `~/.private/.gitconfig` with your private info:
 
 ```
 [user]
