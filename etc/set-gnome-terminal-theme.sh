@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
-# A simple script to set Zenburn color scheme in GNOME Terminal.
-# It creates a new default profile via dconf, named after user.
+# A simple script to set GNOME Terminal style. It creates
+# a new default profile via dconf, named after user.
 
 set -eu
 
-declare -A deps=(["dconf"]="dconf-cli" ["uuidgen"]="uuid-runtime")
+declare -A deps=(
+    ["dconf"]="dconf-cli"
+    ["uuidgen"]="uuid-runtime"
+)
 
 for dep in "${!deps[@]}"
 do
@@ -31,7 +34,7 @@ profile_id="$(uuidgen)"
 profiles=/org/gnome/terminal/legacy/profiles:
 profile="$profiles/:$profile_id"
 
-echo -n "Creating default profile '$profile_name'... "
+echo "Creating default profile '$profile_name'... "
 
 dset $profiles/list "['$profile_id']"
 dset $profiles/default "'$profile_id'"
@@ -45,14 +48,12 @@ dset $profile/bold-color-same-as-fg "false"
 dset $profile/scrollback-unlimited "true"
 dset $profile/scrollbar-policy "'never'"
 
-echo "done."
+echo "Done."
 echo
 echo "Your new profile can be found at:"
 echo "$profile"
 echo
 echo "To nuke the profile setup:"
 echo "$ dconf reset -f \"$profiles/\""
-echo
-echo "Bye~!"
 
 exit 0
