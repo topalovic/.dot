@@ -6,7 +6,10 @@
 
 set -eu
 
-declare -A deps=(["gconftool-2"]="gconf2")
+declare -A deps=(
+  ["guake"]="guake"
+  ["gconftool-2"]="gconf2"
+)
 
 for dep in "${!deps[@]}"
 do

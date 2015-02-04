@@ -6,8 +6,8 @@
 set -eu
 
 declare -A deps=(
-    ["dconf"]="dconf-cli"
-    ["uuidgen"]="uuid-runtime"
+  ["dconf"]="dconf-cli"
+  ["uuidgen"]="uuid-runtime"
 )
 
 for dep in "${!deps[@]}"
