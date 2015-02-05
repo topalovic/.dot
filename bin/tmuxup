@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# My tmux bootstrap script.
+# $ tmuxup <new-session-name>
+
+set -eu
+
+# Session name
+session=${1:-}
+: ${session:=${PWD##*/}}
+
+is_server_up () {
+  tmux info &> /dev/null
+}
+
+session_exists () {
+  is_server_up && tmux has -t $session &> /dev/null
+}
+
+# Abort on collision
+if session_exists; then
+  echo -e "Session '$session' already exists, aborting."
+  exit 1
+fi
+
+# Create session
+tmux new-session -d -s $session
+
+# Setup main window
+tmux rename-window 'main'
+tmux split-window -h
+tmux split-window -v
+tmux select-pane -t 1
+
+# Create other windows
+tmux new-window -t $session -n 'shell'
+tmux new-window -t $session -n 'aux'
+tmux new-window -t $session -n 'remote'
+
+# Go back to main window
+tmux select-window -t $session:main
+
+# Attach!
+tmux -2 attach-session -t $session
