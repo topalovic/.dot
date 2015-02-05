@@ -1,8 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 set -eu
 
-# Hardcode path to keep Cthulhu away
 cd ~/.dot
 
 dotfiles=$(find files -name "dot.*")

@@ -1,9 +1,11 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 set -eu
 
-# Hardcode path to keep Cthulhu away
-cd ~/.dot
+dotdir=~/.dot
+bindir=$dotdir/bin
+
+cd $dotdir
 
 dotfiles=$(find files -name "dot.*")
 
@@ -39,3 +41,7 @@ for file in $dotfiles; do
   echo "* linking $target => $PWD/$file"
   ln -s "$PWD/$file" "$target"
 done
+
+if ! echo $PATH | grep -q $bindir; then
+  echo -e "\nRemember to add $bindir to path."
+fi
