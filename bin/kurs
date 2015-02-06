@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+# A simple script to display current exchange rates for RSD.
+# $ kurs [usd|eur|chf|...]
+
+require "net/http"
+require "uri"
+require "json"
+require "yaml"
+
+module Kurs
+
+  module API
+    KEY = ENV["API_KEY_KURSNA_LISTA"] or abort "Missing API key, aborting."
+    URL = "http://api.kursna-lista.info/#{KEY}/kursna_lista/json"
+
+    def self.get
+      Net::HTTP.get URI.parse(URL)
+    end
+  end
+
+  def self.list(*currencies)
+    currencies.map!(&:to_s)
+    list = JSON.parse(API.get)["result"]
+    list.select { |k, _| currencies.include? k }
+  end
+end
+
+if __FILE__ == $0
+  currencies = [:eur, :usd]
+  currencies = ARGV unless ARGV.empty?
+  puts Kurs.list(*currencies).to_yaml.delete("'-").sub("\n", "")
+end
