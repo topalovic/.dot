@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# curl through tor; example:
+# $ turl icanhazip.com
+
+curl --socks5-hostname localhost:9050 $*

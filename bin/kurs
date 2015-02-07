@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+#
 # A simple script to display current exchange rates for RSD.
 # $ kurs [usd|eur|chf|...]
 
@@ -20,14 +20,16 @@ module Kurs
   end
 
   def self.list(*currencies)
-    currencies.map!(&:to_s)
-    list = JSON.parse(API.get)["result"]
-    list.select { |k, _| currencies.include? k }
+    JSON.parse(API.get)["result"]
+      .select { |c| currencies.include? c }
   end
 end
 
 if __FILE__ == $0
-  currencies = [:eur, :usd]
-  currencies = ARGV unless ARGV.empty?
-  puts Kurs.list(*currencies).to_yaml.delete("'-").sub("\n", "")
+  currencies = ARGV.any? ? ARGV : %w[eur usd]
+
+  puts Kurs.list(*currencies)
+    .to_yaml
+    .delete("'-")
+    .sub("\n", "")
 end

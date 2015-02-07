@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#
+# A simple convenience wrapper for WordNet
+
+synonyms=$(wn $1 -syns{n,v,a,r})
+antonyms=$(wn $1 -ants{n,v,a,r})
+separator="================================"
+results="$synonyms\n\n$separator\n$antonyms"
+
+echo -e "$results" | less -FX

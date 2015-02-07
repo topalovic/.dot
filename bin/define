@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# A simple convenience wrapper for WordNet
+
+wn $1 -over | less -FX
