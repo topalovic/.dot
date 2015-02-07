@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 #
-# A simple convenience wrapper for WordNet
+# My convenience wrapper for WordNet:
+# $ define discombobulate
+
+[ -z "$1" ] && echo "Supply a search term." && exit 1
 
 wn $1 -over | less -FX

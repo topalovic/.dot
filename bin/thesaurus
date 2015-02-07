@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 #
-# A simple convenience wrapper for WordNet
+# My convenience wrapper for WordNet:
+# $ thesaurus cantankerous
+
+[ -z "$1" ] && echo "Supply a search term." && exit 1
 
 synonyms=$(wn $1 -syns{n,v,a,r})
 antonyms=$(wn $1 -ants{n,v,a,r})
-separator="================================"
-results="$synonyms\n\n$separator\n$antonyms"
+results="$synonyms\n$antonyms"
 
 echo -e "$results" | less -FX

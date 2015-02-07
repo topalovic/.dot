@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+#
 # A simple script to set Guake style and a global keyboard
 # shortcut. It overrides existing values via gconftool-2,
 # so backup first if needed.

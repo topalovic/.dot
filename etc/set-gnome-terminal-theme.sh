@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+#
 # A simple script to set GNOME Terminal style. It creates
 # a new default profile via dconf, named after user.
 
