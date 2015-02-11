@@ -5,7 +5,6 @@
 #     U    ack!
 #
 # http://beyondgrep.com/documentation/
-#
 
 # Case sensitive only if mixed case needle
 --smart-case
@@ -20,7 +19,7 @@
 --color
 
 # Use less as pager
-# --pager=less -r
+--pager=less -FXr
 
 # File types
 --type-add=ruby:is:Gemfile
