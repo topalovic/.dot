@@ -3,6 +3,8 @@
 # Toggle file/dir visibility by adding or removing a leading dot.
 # $ hide file [file]*
 
+GLOBIGNORE=.:..
+
 set -e
 
 is_hidden () {
