@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 #
-# A simple script to display current exchange rates for RSD.
-# $ kurs [usd|eur|chf|...]
+# Display current exchange rates for RSD.
+# $ kurs [eur|usd|chf|...]*
 
 require "net/http"
 require "uri"

@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#
+# Toggle file/dir visibility by adding or removing a leading dot.
+# $ hide file [file]*
+
+set -e
+
+is_hidden () {
+  [[ "$(basename "$1")" == .* ]]
+}
+
+_hide () {
+  mv -v "$1" $(dirname "$1")/.$(basename "$1")
+}
+
+_unhide () {
+  local b=$(basename "$1")
+  mv -v "$1" $(dirname "$1")/${b#.}
+}
+
+for file in $*; do
+  if is_hidden "$file"; then
+    _unhide "$file"
+  else
+    _hide "$file"
+  fi
+done
