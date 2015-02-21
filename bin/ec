@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# My emacsclient.
+#
+#   -c opens a new window using the running server process.
+#
+#   -a sets an alternate command to run if there's no running server
+#   process. An empty string means "start a new daemon process in the
+#   background and try again".
+
+# Test for existing frames
+test="(if (> (length (frame-list)) 1) 't)"
+emacsclient -n -e "$test" | grep t &> /dev/null
+
+# Create a frame if none exist
+if [ "$?" = "1" ]; then
+  emacsclient -c -n -a "" "$@"
+else
+  emacsclient -n -a "" "$@"
+fi

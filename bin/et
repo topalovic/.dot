@@ -1,0 +1,7 @@
+#!/bin/bash
+#
+# My tty emacsclient.
+#
+#   -t opens a new frame on the current terminal.
+
+emacsclient -t -a "" "$@"
