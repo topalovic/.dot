@@ -20,4 +20,4 @@ tries = 3
 trust_server_names = on
 
 # Print the HTTP and FTP server responses
-server_response = on
+# server_response = on
