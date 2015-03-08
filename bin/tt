@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# My tree shortcut.
+
+tree -I ".git|.hg|.svn" "$@" | less -FXr
