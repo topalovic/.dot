@@ -1,0 +1,6 @@
+#!/bin/bash
+#
+# My wrapper for lsof.
+
+set -e
+exec lsof -iTCP -sTCP:LISTEN -P "$@"

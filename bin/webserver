@@ -1,0 +1,6 @@
+#!/bin/bash
+#
+# Simple HTTP Server:
+# $ webserver [port]
+
+python -m SimpleHTTPServer "$@"
