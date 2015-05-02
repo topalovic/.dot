@@ -5,23 +5,24 @@
   excludesfile = ~/.gitignore
   # todo: editor
 
-[push]
-  default = current
-
 [pull]
   ff = only
+
+[push]
+  default = current
 
 [merge]
   # todo: merge tool
 
 [alias]
-  br = branch
+  b  = branch
   co = checkout
-  cl = clone --recursive
-  st = status --short --branch
-  ll = log --stat --abbrev-commit
-  # todo: pretty log with graph
+  ci = commit
+  s  = status --short --branch
+  st = status
+  l  = log --abbrev-commit --all --graph --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+  ll = log --abbrev-commit
   unstage  = reset HEAD --
   uncommit = reset --soft HEAD^ --
   unamend  = reset --soft HEAD@{1} --
-  aliases = !git config --get-regexp alias | cut -c 7- | sed 's| | => |'
+  aliases  = !git config --get-regexp alias | cut -c 7- | sed 's| | => |'
