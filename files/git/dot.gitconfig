@@ -2,8 +2,8 @@
   path = ~/.private/.gitconfig
 
 [core]
+  editor = ~/.dot/bin/et
   excludesfile = ~/.gitignore
-  # todo: editor
 
 [pull]
   ff = only
