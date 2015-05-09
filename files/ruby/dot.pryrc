@@ -1,17 +1,17 @@
 #!/usr/bin/env ruby
 
 # Some common tools
-%w[awesome_print pry-remote].each do |file|
+%w[awesome_print pry-remote].each do |gem|
   begin
-    require file
+    require gem
   rescue LoadError
   end
 end
 
 # My playground setup
 begin
-  load File.expand_path("~/.rubyrc")
-  include RubyRC
+  require "duplo"
+  include Duplo
 rescue LoadError
 end
 
@@ -33,8 +33,6 @@ Pry::Commands.alias_command "reload", "reload-method"
 
 # My command set
 my_command_set = Pry::CommandSet.new do
-
-  # TODO Try to shoehorn seed structures here
 
   block_command "fortune" do |name|
     msg = `fortune` rescue "You might want to install fortune first."
