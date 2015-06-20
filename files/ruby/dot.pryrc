@@ -1,18 +1,15 @@
 #!/usr/bin/env ruby
 
-# Some common tools
-%w[awesome_print pry-remote].each do |gem|
-  begin
-    require gem
-  rescue LoadError
-  end
-end
-
 # My playground setup
 begin
   require "duplo"
   include Duplo
 rescue LoadError
+end
+
+# Running within Emacs
+if ENV["EMACS"]
+  Pry.config.correct_indent = false
 end
 
 # Display project/folder name in prompt
