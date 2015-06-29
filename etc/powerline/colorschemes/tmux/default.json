@@ -1,0 +1,21 @@
+{
+  "groups": {
+    "active_window_status": { "fg": "darkblue", "bg": "gray0" },
+    "activity_status": { "fg": "yellow", "bg": "gray0" },
+    "background": { "fg": "white", "bg": "gray0" },
+    "background:divider": { "fg": "gray5", "bg": "gray0" },
+    "bell_status": { "fg": "red", "bg": "gray0" },
+    "hostname": { "fg": "black", "bg": "gray9", "attrs": ["bold"] },
+    "internal_ip": { "fg": "gray9", "bg": "gray2" },
+    "external_ip": "internal_ip",
+    "session": { "fg": "black", "bg": "gray9", "attrs": ["bold"] },
+    "session:prefix": { "fg": "gray90", "bg": "darkblue", "attrs": ["bold"] },
+    "weather": { "fg": "gray10", "bg": "darkblue" },
+    "weather_temp_gradient": "weather",
+    "window": { "fg": "gray6", "bg": "gray0" },
+    "window:current": { "fg": "mediumcyan", "bg": "darkblue" },
+    "window:divider": { "fg": "gray4", "bg": "gray0" },
+    "window_name": { "fg": "white", "bg": "darkblue", "attrs": ["bold"] },
+    "window_status": { "fg": "gray70", "bg": "gray0" }
+  }
+}

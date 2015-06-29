@@ -1,0 +1,52 @@
+{
+  "segments": {
+    "right": [
+      {
+        "function": "powerline.segments.common.sys.system_load",
+        "before": "⚡ ",
+        "args": {
+          "format": "{avg:.2f}"
+        }
+      },
+      {
+        "function": "powerline.segments.common.net.external_ip",
+        "before": "ⓦ "
+      },
+      {
+        "function": "powerline.segments.common.net.internal_ip",
+        "before": "ⓛ ",
+        "args": {
+          "interface": "en1"
+        }
+      },
+      {
+        "function": "powerline.segments.common.net.hostname",
+        "before": "★ ",
+        "after": "",
+        "args": {
+          "exclude_domain": true
+        }
+      },
+      {
+        "function": "powerline.segments.common.wthr.weather",
+        "args": {
+          "unit": "C",
+          "location_query": "Belgrade, Serbia",
+          "icons": {
+            "sunny":   "☀",
+            "day":     "〇",
+            "windy":   "⚑",
+            "cloudy":  "☁",
+            "foggy":   "☴",
+            "rainy":   "☂",
+            "snowy":   "❄",
+            "stormy":  "⚡",
+            "night":   "☾",
+            "unknown": "⚠",
+            "not_available": ""
+          }
+        }
+      }
+    ]
+  }
+}
