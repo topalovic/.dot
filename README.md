@@ -1,24 +1,24 @@
 Nikola's dotfiles
 =================
 
-## To install
+## Setup
 
-Run the following in your home directory:
+Clone the repo to your home folder and run:
 
 ```sh
-$ git clone https://github.com/topalovic/.dot
-$ .dot/setup
+~$ .dot/setup
 ```
 
 :facepunch: Bam. Done.
 
 
-## To customize
+## Customization
 
-The setup script will symlink the appropriate files in `.dot` to your home
-directory. All further hacking should take place in `~/.dot/files`.
+The setup script will symlink everything that matches
+`.dot/files/**/dot.*` to your home directory.
 
-To configure git, set up `~/.private/.gitconfig` with your private info:
+To configure git, set up `~/.private/.gitconfig` with your personal
+info:
 
 ```
 [user]
@@ -30,13 +30,15 @@ To configure git, set up `~/.private/.gitconfig` with your private info:
   token = <github-token>
 ```
 
+Check `.dot/bin` and `.dot/etc` for optional goodies.
 
-## To uninstall
 
-Just run the unlink script:
+## Cleanup
+
+To uninstall, just run the unlink script:
 
 ```sh
-$ .dot/unlink
+~$ .dot/unlink
 ```
 
-This will remove all recognized dotfile links from your home folder.
+This will remove all recognized dotfile links from `~`.
