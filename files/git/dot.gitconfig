@@ -9,7 +9,7 @@
   ff = only
 
 [push]
-  default = current
+  default = simple
 
 [merge]
   # todo: merge tool
