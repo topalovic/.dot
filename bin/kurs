@@ -3,33 +3,46 @@
 # Display current exchange rates for RSD.
 # $ kurs [eur|usd|chf|...]*
 
-require "net/http"
-require "uri"
 require "json"
 require "yaml"
 
 module Kurs
+  CACHE_KEY = ["kurs", Time.now.strftime("%Y-%m-%d")].join("-")
+  CACHE_FILE = "/tmp/#{CACHE_KEY}.json"
+  DEFAULT_CURRENCIES = %w[eur usd]
 
   module API
     KEY = ENV["API_KEY_KURSNA_LISTA"] or abort "Missing API key, aborting."
     URL = "http://api.kursna-lista.info/#{KEY}/kursna_lista/json"
 
-    def self.get
-      Net::HTTP.get URI.parse(URL)
+    def self.fetch
+      require "open-uri"
+      open(URL).read
     end
   end
 
-  def self.list(*currencies)
-    JSON.parse(API.get)["result"]
-      .select { |c| currencies.include? c }
+  module_function
+
+  def raw
+    if File.exists?(CACHE_FILE)
+      File.read(CACHE_FILE)
+    else
+      API.fetch.tap { |data| File.write(CACHE_FILE, data) }
+    end
+  end
+
+  def list
+    JSON.parse(raw)["result"]
+  end
+
+  def filter(*currencies)
+    currencies = DEFAULT_CURRENCIES if currencies.empty?
+    list.select { |c| currencies.include? c }
+  end
+
+  def pretty(*currencies)
+    filter(*currencies).to_yaml.delete("'-").strip
   end
 end
 
-if __FILE__ == $0
-  currencies = ARGV.any? ? ARGV : %w[eur usd]
-
-  puts Kurs.list(*currencies)
-    .to_yaml
-    .delete("'-")
-    .sub("\n", "")
-end
+puts Kurs.pretty(*ARGV) if __FILE__ == $0
