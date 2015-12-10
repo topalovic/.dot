@@ -16,7 +16,7 @@
         "function": "powerline.segments.common.net.internal_ip",
         "before": "ⓛ ",
         "args": {
-          "interface": "en1"
+          "interface": "en0"
         }
       },
       {
