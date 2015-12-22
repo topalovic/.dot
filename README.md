@@ -6,7 +6,7 @@ Nikola's dotfiles
 Clone the repo to your home folder and run:
 
 ```sh
-~$ .dot/setup
+$ .dot/setup
 ```
 
 :facepunch: Bam. Done.
@@ -14,8 +14,8 @@ Clone the repo to your home folder and run:
 
 ## Customization
 
-The setup script will symlink everything that matches
-`.dot/files/**/dot.*` to your home directory.
+The setup script will symlink everything matching `.dot/files/*` to
+your home directory.
 
 To configure git, set up `~/.private/.gitconfig` with your personal
 info:
@@ -38,7 +38,7 @@ Check `.dot/bin` and `.dot/etc` for optional goodies.
 To uninstall, just run the unlink script:
 
 ```sh
-~$ .dot/unlink
+$ .dot/unlink
 ```
 
-This will remove all recognized dotfile links from `~`.
+This will clean all recognized dotfile links from `~`.

@@ -2,13 +2,9 @@
 
 set -eu
 
-cd ~/.dot
-
-dotfiles=$(find files -name "dot.*")
-
-for file in $dotfiles; do
-  basename=${file##*dot}
-  target="$HOME/$basename"
+for file in ~/.dot/files/*; do
+  basename=${file##*/}
+  target="$HOME/.$basename"
 
   if [ -h "$target" ]; then
     echo "* unlinking $target"

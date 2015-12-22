@@ -2,20 +2,13 @@
 
 set -eu
 
-dotdir=~/.dot
-bindir=$dotdir/bin
-
-cd $dotdir
-
-dotfiles=$(find files -name "dot.*")
-
 overwrite_all=false
 
-for file in $dotfiles; do
+for file in ~/.dot/files/*; do
   overwrite=false
 
-  basename=${file##*dot}
-  target="$HOME/$basename"
+  basename=${file##*/}
+  target="$HOME/.$basename"
 
   if [ -e "$target" ]; then
     if ! $overwrite_all; then
@@ -38,9 +31,11 @@ for file in $dotfiles; do
     fi
   fi
 
-  echo "* linking $target => $PWD/$file"
-  ln -s "$PWD/$file" "$target"
+  echo "* linking $target => $file"
+  ln -s "$file" "$target"
 done
+
+bindir=~/.dot/bin
 
 if ! echo $PATH | grep -q $bindir; then
   echo -e "\nRemember to add $bindir to path."
