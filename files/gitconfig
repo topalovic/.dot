@@ -28,4 +28,5 @@
   unstage  = reset HEAD --
   uncommit = reset --soft HEAD^ --
   unamend  = reset --soft HEAD@{1} --
+  cop      = !git diff --name-only $(git merge-base master HEAD) -- '*.rb' '*.rake' | xargs bundle exec rubocop
   aliases  = !git config --get-regexp alias | cut -c 7- | sed 's| | => |'
