@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Pick a single line from input (stdin works too):
+# $ pick ideas/*.txt
+
+type -P gshuf &>/dev/null && shuf="gshuf" || shuf="shuf"
+grep -v "^$" "$@" | $shuf -n 1
