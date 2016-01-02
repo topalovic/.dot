@@ -1,0 +1,11 @@
+# Common shell config
+[ -f ~/.shellrc ] && source ~/.shellrc
+
+# Case-insensitive globbing
+shopt -s nocaseglob
+
+# Append to history file, don't overwrite it
+shopt -s histappend
+
+# Autocorrect typos in path names when using `cd`
+shopt -s cdspell
