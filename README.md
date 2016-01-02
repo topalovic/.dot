@@ -17,8 +17,7 @@ $ .dot/setup
 The setup script will symlink everything matching `.dot/files/*` to
 your home directory.
 
-To configure git, set up `~/.private/.gitconfig` with your personal
-info:
+To configure git, set up `~/.private/gitconfig` with your personal info:
 
 ```
 [user]

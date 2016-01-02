@@ -1,5 +1,5 @@
 [include]
-  path = ~/.private/.gitconfig
+  path = ~/.private/gitconfig
 
 [core]
   editor = ~/.dot/bin/et
