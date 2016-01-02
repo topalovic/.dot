@@ -2,6 +2,13 @@
 
 set -eu
 
+if [ ! -d ~/.zprezto ]; then
+  echo "Cloning prezto..."
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
+fi
+
+echo "Linking dotfiles..."
+
 overwrite_all=false
 
 for file in ~/.dot/files/*; do
