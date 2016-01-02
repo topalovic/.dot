@@ -1,0 +1,34 @@
+# My minimalistic zsh prompt.
+
+function prompt_nikola_precmd {
+  git-info
+}
+
+function prompt_nikola_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  # Load required functions
+  autoload -Uz add-zsh-hook
+
+  # Add hook for calling git-info before each command
+  add-zsh-hook precmd prompt_nikola_precmd
+
+  # Set git-info parameters.
+  zstyle ':prezto:module:git:info' verbose 'yes'
+  zstyle ':prezto:module:git:info:branch' format '%F{green}%b%f'
+  zstyle ':prezto:module:git:info:clean' format ' %F{green}✔%f'
+  zstyle ':prezto:module:git:info:dirty' format ' %F{red}✗%f'
+  zstyle ':prezto:module:git:info:keys'  format \
+    'prompt' ' %F{green}(%f$(coalesce "%b" "%p" "%c")${git_info[rprompt]}%s%F{green})%f' \
+    'rprompt' '%C%D'
+
+  # A minimalistic prompt
+  PROMPT='%~${(e)git_info[prompt]} » '
+
+  # Display non-zero exit code
+  RPROMPT='%(?,,%F{red}%?)%f'
+}
+
+prompt_nikola_setup "$@"
