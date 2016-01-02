@@ -1,0 +1,8 @@
+# Smarter autocomplete
+set completion-ignore-case on
+set skip-completed-text on
+
+# Handle UTF-8 I/O
+set input-meta on
+set output-meta on
+set convert-meta off
