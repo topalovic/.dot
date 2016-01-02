@@ -1,0 +1,19 @@
+# Sudo
+
+alias sudo="sudo " # Enable aliases to be sudoed
+alias _="sudo"
+
+# Navigation
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+alias db="cd ~/Dropbox"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+
+# Misc
+
+alias be="bundle exec"
