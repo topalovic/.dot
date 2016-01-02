@@ -14,12 +14,10 @@ $ .dot/setup
 
 ## Customization
 
-The setup script will symlink everything matching `.dot/files/*` to
-your home directory.
+To round off git configuration, set up `~/.private/gitconfig` with
+your personal info:
 
-To configure git, set up `~/.private/gitconfig` with your personal info:
-
-```
+```ini
 [user]
   name  = Nikola Topalović
   email = nikola@example.org
@@ -29,7 +27,13 @@ To configure git, set up `~/.private/gitconfig` with your personal info:
   token = <github-token>
 ```
 
-Check `.dot/bin` and `.dot/etc` for optional goodies.
+For secret vars and other local data, provide a `~/.private/env`
+script that will be sourced automatically.
+
+Grab the
+[pre-patched fonts for powerline](https://github.com/powerline/fonts)
+and don't forget to check [bin](bin/) and [etc](etc/) for optional
+goodies.
 
 
 ## Cleanup

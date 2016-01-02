@@ -2,10 +2,24 @@
 
 set -eu
 
+# Prezto
+
 if [ ! -d ~/.zprezto ]; then
-  echo "Cloning prezto..."
   git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
 fi
+
+# Powerline
+
+for pkg in {powerline-status,psutil,netifaces}; do
+  [ ! "$(pip list | grep $pkg)" ] && pip install $pkg
+done
+
+if [ ! -e ~/.config/powerline ]; then
+  mkdir -p ~/.config
+  ln -ns ~/.dot/etc/powerline ~/.config/powerline
+fi
+
+# Dotfiles
 
 echo "Linking dotfiles..."
 
@@ -38,12 +52,5 @@ for file in ~/.dot/files/*; do
     fi
   fi
 
-  echo "* linking $target => $file"
-  ln -s "$file" "$target"
+  ln -sv "$file" "$target"
 done
-
-bindir=~/.dot/bin
-
-if ! echo $PATH | grep -q $bindir; then
-  echo -e "\nRemember to add $bindir to path."
-fi
