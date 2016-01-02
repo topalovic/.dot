@@ -1,0 +1,20 @@
+# Sourced in interactive shells.
+
+# Pick up the prompt
+if [[ -d "$HOME/.dot/etc/themes" ]]; then
+  fpath=( "$HOME/.dot/etc/themes" "${fpath[@]}" )
+fi
+
+# Prezto init
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Common shell config
+[ -f ~/.shellrc ] && source ~/.shellrc
+
+# Disable autocorrect guesses
+unsetopt CORRECT
+
+# Unalias prezto aliases
+unalias rm &>/dev/null

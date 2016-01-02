@@ -1,0 +1,20 @@
+# Prezto setup.
+
+zstyle ':prezto:*:*' color 'yes'
+
+# Load modules (the order matters here)
+zstyle ':prezto:load' pmodule \
+  'environment' \
+  'terminal' \
+  'editor' \
+  'history' \
+  'directory' \
+  'spectrum' \
+  'utility' \
+  'completion' \
+  'git' \
+  'history-substring-search' \
+  'prompt'
+
+zstyle ':prezto:module:editor' key-bindings 'emacs'
+zstyle ':prezto:module:prompt' theme 'nikola'
