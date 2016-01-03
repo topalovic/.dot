@@ -17,4 +17,5 @@ fi
 unsetopt CORRECT
 
 # Unalias prezto aliases
+unalias mv &>/dev/null
 unalias rm &>/dev/null
