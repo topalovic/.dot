@@ -1,5 +1,3 @@
-# $ brew bundle
-
 tap 'homebrew/bundle'
 tap 'homebrew/dupes'
 tap 'caskroom/cask'
@@ -8,6 +6,7 @@ cask 'xquartz'
 
 brew 'ack'
 brew 'aspell'
+brew 'cloc'
 brew 'coreutils'
 brew 'cowsay'
 brew 'emacs', args: ['with-cocoa']
