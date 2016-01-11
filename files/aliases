@@ -14,6 +14,7 @@ alias db="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 
-# Misc
+# Ruby
 
 alias be="bundle exec"
+alias cop="bundle exec rubocop"
