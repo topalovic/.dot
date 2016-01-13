@@ -34,8 +34,8 @@ tmux select-pane -t 1
 
 # Create other windows
 tmux new-window -t $session -n 'shell'
-tmux new-window -t $session -n 'aux'
 tmux new-window -t $session -n 'remote'
+tmux new-window -t $session -n 'aux'
 
 # Go back to main window
 tmux select-window -t $session:main
