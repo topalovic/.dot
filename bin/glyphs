@@ -1,6 +1,31 @@
 #!/usr/bin/env bash
 #
-# My glyphs clipboard.
+# Glyphs clipboard.
 # For the times when you, like, really need that ☭.
 
-cat ~/.dot/etc/glyphs
+cat <<GLYPHS
+currencies/trademarks
+  € £ ¢ ¥ ™ ®
+
+graphemes/accents
+  Æ æ â ô † ‡ ‰
+
+math
+  ≈ ≠ ≡ ≤ ≥ ∞ ∅ ⊤ ⊥ ∎
+  ∀ ∃ ∑ ∏ ∆ ∇ ∧ ∨ ∪ ∩
+  ∈ ∉ ⊂ ⊃ ⊆ ⊇ ⊕ ⊗ ∂ ∫
+
+greek
+  Γ Δ Θ Ξ Σ Ω α β γ δ
+  η θ λ μ ξ π ρ φ χ ω
+
+arrows/checkmarks
+  ← ↑ → ↓ ↔ ↕ ⇐ ⇒ ⇔
+  ✓ ✔ ✕ ✖ ✗ ✘ ☐ ☑ ☒
+
+misc
+  ☺ ☹ ♂ ♀ ❤ ✿ ☾ ☀ ☁ ❄
+  ☂ ✈ ✂ ✉ ♪ ♫ 𝄞 ★ ☭ ☮
+  ♔ ♕ ♖ ♗ ♘ ♙ ♠ ♣ ♥ ♦
+  ✝ ☪ ✡ ☯ ✙ ✠ ⚛ ☢ ☣ ☠
+GLYPHS
