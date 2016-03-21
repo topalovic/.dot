@@ -18,3 +18,7 @@ alias dt="cd ~/Desktop"
 
 alias be="bundle exec"
 alias cop="bundle exec rubocop"
+
+# Util
+
+alias h=http
