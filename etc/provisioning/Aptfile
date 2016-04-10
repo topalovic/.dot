@@ -59,15 +59,16 @@ slack
 sqlite3
 sublime-text
 telnet
+tesseract-ocr
 tmux
 tor
 traceroute
-transmission
 tree
 tzdata
 usbutils
 uuid-runtime
 vagrant
+valgrind
 viber
 virtualbox
 vlc
