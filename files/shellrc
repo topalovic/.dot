@@ -15,6 +15,9 @@ if [ -f ~/.dot/bin/ec ]; then
   export VISUAL=~/.dot/bin/ec
 fi
 
+# rbenv
+[ `command -v rbenv` ] && eval "$(rbenv init -)"
+
 # Paths
 for bin in {.cask/bin,.rbenv/bin,.dot/bin,bin}; do
   [ -d "$HOME/$bin" ] && PATH="$HOME/$bin:$PATH"
@@ -25,6 +28,3 @@ done
 
 # Private vars
 [ -f ~/.private/env ] && source ~/.private/env
-
-# rbenv
-[ `command -v rbenv` ] && eval "$(rbenv init -)"
