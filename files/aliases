@@ -21,4 +21,5 @@ alias cop="bundle exec rubocop"
 
 # Util
 
+alias g=git
 alias h=http
