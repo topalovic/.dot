@@ -16,8 +16,8 @@ if [ -f ~/.dot/bin/ec ]; then
 fi
 
 # Paths
-for bin in {.cask/bin,.rbenv/bin,.dot/bin,bin}; do
-  [ -d "$HOME/$bin" ] && PATH="$HOME/$bin:$PATH"
+for bin in {bin,.dot/bin,.rbenv/bin,.cask/bin}; do
+  [ -d "$HOME/$bin" ] && PATH="$PATH:$HOME/$bin"
 done
 
 # Aliases

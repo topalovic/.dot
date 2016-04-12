@@ -1,1 +1,4 @@
 [ -f ~/.bashrc ] && source ~/.bashrc
+
+# Common shell config
+[ -f ~/.shellrc ] && source ~/.shellrc
