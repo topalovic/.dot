@@ -28,5 +28,6 @@ done
 # Private vars
 [ -f ~/.private/env ] && source ~/.private/env
 
-# rbenv
+# rbenv & jenv
 [ `command -v rbenv` ] && eval "$(rbenv init -)"
+[ `command -v jenv` ] && eval "$(jenv init -)"
