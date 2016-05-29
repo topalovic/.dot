@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+#
+# Enables/disables tor SOCKS proxy (OS X only atm):
+# $ tor-proxy [on|off|status]
+
+# 'Wi-Fi' or 'Ethernet' or 'Display Ethernet'
+INTERFACE=Wi-Fi
+
+function enable_tor() {
+  sudo networksetup -setsocksfirewallproxy $INTERFACE 127.0.0.1 9050 off
+  sudo networksetup -setsocksfirewallproxystate $INTERFACE on
+  echo "SOCKS proxy on $INTERFACE 127.0.0.1:9050 enabled."
+}
+
+function disable_tor() {
+  sudo networksetup -setsocksfirewallproxystate $INTERFACE off
+  echo "SOCKS proxy on $INTERFACE disabled."
+}
+
+function show_status {
+  networksetup -getsocksfirewallproxy $INTERFACE | grep Enabled | grep Yes > /dev/null
+  if [ $? -eq 0 ]; then
+    echo "SOCKS proxy on $INTERFACE enabled."
+  else
+    echo "SOCKS proxy on $INTERFACE disabled."
+    exit 1
+  fi
+}
+
+case "$1" in
+   on) enable_tor  ;;
+  off) disable_tor ;;
+    *) show_status
+esac
