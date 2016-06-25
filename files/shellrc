@@ -18,7 +18,7 @@ if [ -f ~/.dot/bin/ec ]; then
 fi
 
 # Paths
-for bin in {bin,.dot/bin,.rbenv/bin,.cask/bin}; do
+for bin in {bin,.dot/bin,.rbenv/bin,.cask/bin,/usr/local/bin}; do
   [ -d "$HOME/$bin" ] && PATH="$PATH:$HOME/$bin"
 done
 
