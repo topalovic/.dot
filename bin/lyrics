@@ -7,17 +7,12 @@
 set -e
 
 if [[ $OSTYPE != darwin* ]]; then
-  echo "Limited to iTunes on OS X for now. Sorry :-("
-  exit 1
+  echo "Limited to iTunes on OS X for now. Sorry :-(" && exit 1
 fi
 
-artist_name=$(osascript -e'tell application "iTunes"' -e'get artist of current track' -e'end tell' 2>&1)
-song_title=$(osascript -e'tell application "iTunes"' -e'get name of current track' -e'end tell' 2>&1)
+artist=$(osascript -e'tell application "iTunes"' -e'get artist of current track' -e'end tell' 2>&1)
+title=$(osascript -e'tell application "iTunes"' -e'get name of current track' -e'end tell' 2>&1)
+lyrics=$(curl -s -G "https://makeitpersonal.co/lyrics" --data-urlencode "artist=$artist" --data-urlencode "title=$title")
 
-artist=$(perl -MURI::Escape -e 'print uri_escape($ARGV[0]);' "$artist_name")
-title=$(perl -MURI::Escape -e 'print uri_escape($ARGV[0]);' "$song_title")
-lyrics=$(curl -s "http://makeitpersonal.co/lyrics?artist=$artist&title=$title")
-
-out="\"$song_title\" by $artist_name\n$lyrics"
-
+out="\"$title\" by $artist\n$lyrics"
 echo -e "$out" | less -FXr
