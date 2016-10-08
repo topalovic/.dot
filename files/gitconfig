@@ -5,6 +5,9 @@
   editor = ~/.dot/bin/et
   excludesfile = ~/.gitignore
 
+[commit]
+  gpgsign = true
+
 [fetch]
   prune = true
 
@@ -16,6 +19,9 @@
 
 [merge]
   # todo: merge tool
+
+[gpg]
+  program = gpg2
 
 [alias]
   b  = branch
