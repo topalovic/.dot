@@ -14,12 +14,17 @@ alias db="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 
+alias mkdir="mkdir -pv"
+
+# Util
+
+alias bc="bc -l"
+alias f="find . -iname"
+alias g=git
+alias h=http
+alias v=vagrant
+
 # Ruby
 
 alias be="bundle exec"
 alias cop="bundle exec rubocop"
-
-# Util
-
-alias g=git
-alias h=http
