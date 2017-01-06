@@ -14,17 +14,28 @@ alias db="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 
-alias mkdir="mkdir -pv"
+mkcd() {
+  test -d "$1" || mkdir -p -- "$1" && cd -P -- "$1"
+}
 
 # Util
 
-alias bc="bc -l"
-alias f="find . -iname"
 alias g=git
 alias h=http
+alias d=docker
 alias v=vagrant
+alias t=tmux
+
+alias bc="bc -l"
+alias f="find . -iname"
+alias mkdir="mkdir -pv"
+
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias week="date +%V"
 
 # Ruby
 
 alias be="bundle exec"
 alias cop="bundle exec rubocop"
+alias cuke="bundle exec cucumber"
+alias rsp="bundle exec rspec"
