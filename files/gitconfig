@@ -13,12 +13,19 @@
 
 [pull]
   ff = only
+  rebase = preserve
 
 [push]
   default = simple
 
 [merge]
   # todo: merge tool
+
+[rebase]
+  autosquash = true
+
+[grep]
+  lineNumber = true
 
 [gpg]
   program = gpg2
@@ -27,12 +34,16 @@
   b  = branch
   co = checkout
   ci = commit
+  pf = push --force-with-lease
+
   s  = status --short --branch
   st = status
   l  = log --abbrev-commit --all --graph --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
   ll = log --abbrev-commit
+
   unstage  = reset HEAD --
   uncommit = reset --soft HEAD^ --
   unamend  = reset --soft HEAD@{1} --
-  cop      = !git diff --name-only --diff-filter=AM $(git merge-base master HEAD) -- '*.rb' '*.rake' | xargs bundle exec rubocop
-  aliases  = !git config --get-regexp alias | cut -c 7- | sed 's| | => |'
+
+  mop = !git branch --merged master | grep -v master | xargs -n 1 git branch -d
+  aliases = !git config --get-regexp alias | cut -c 7- | sed 's| | => |'
