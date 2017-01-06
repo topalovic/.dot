@@ -26,26 +26,6 @@
         "args": {
           "exclude_domain": true
         }
-      },
-      {
-        "function": "powerline.segments.common.wthr.weather",
-        "args": {
-          "unit": "C",
-          "location_query": "Belgrade, Serbia",
-          "icons": {
-            "sunny":   "☀",
-            "day":     "〇",
-            "windy":   "⚑",
-            "cloudy":  "☁",
-            "foggy":   "☴",
-            "rainy":   "☂",
-            "snowy":   "❄",
-            "stormy":  "⚡",
-            "night":   "☾",
-            "unknown": "⚠",
-            "not_available": ""
-          }
-        }
       }
     ]
   }
