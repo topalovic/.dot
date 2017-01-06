@@ -38,12 +38,14 @@ libssl-dev
 llvm
 lm-sensors
 lsof
-mongodb
+mit-scheme
+mtr
 mutt
 mysql-client
 mysql-server
 nano
 netcat
+ngrep
 nodejs
 pgadmin3
 postgresql
