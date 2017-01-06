@@ -1,0 +1,9 @@
+\set ON_ERROR_ROLLBACK interactive
+\set COMP_KEYWORD_CASE upper
+\set VERBOSITY verbose
+
+-- Visible NULLs.
+\pset null '(null)'
+
+-- Switch to expanded table format if needed.
+\x auto
