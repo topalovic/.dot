@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# Dejunk given path from OS artifacts.
+# $ dejunk Projects/
+
+find "$1" -type f \( -name '.DS_Store' -o -iname 'thumbs.db' -o -iname 'desktop.ini' \) -print -delete
