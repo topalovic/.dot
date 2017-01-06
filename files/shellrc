@@ -6,6 +6,11 @@ export LC_ALL="en_US.UTF-8"
 export TERM=xterm-256color
 export GPG_TTY=$(tty)
 
+# Paths
+for bin in {~/bin,~/.dot/bin,~/.rbenv/bin,~/.cask/bin,/usr/local/sbin,/usr/local/bin}; do
+  [ -d "$bin" ] && PATH="$PATH:$bin"
+done
+
 # Editor
 export EDITOR="nano"
 export VISUAL="nano"
@@ -18,16 +23,14 @@ if [ -f ~/.dot/bin/ec ]; then
   export VISUAL=~/.dot/bin/ec
 fi
 
-# Paths
-for bin in {~/bin,~/.dot/bin,~/.rbenv/bin,~/.cask/bin,/usr/local/sbin,/usr/local/bin}; do
-  [ -d "$bin" ] && PATH="$PATH:$bin"
-done
-
 # Aliases
 [ -f ~/.aliases ] && source ~/.aliases
 
 # Private vars
 [ -f ~/.private/env ] && source ~/.private/env
+
+# Homebrew
+export HOMEBREW_NO_ANALYTICS=1
 
 # rbenv & jenv
 [ `command -v rbenv` ] && eval "$(rbenv init -)"
