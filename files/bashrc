@@ -6,3 +6,6 @@ shopt -s histappend
 
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
+
+# Common shell config
+[ -f ~/.shellrc ] && source ~/.shellrc
