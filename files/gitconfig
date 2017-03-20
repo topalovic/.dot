@@ -45,5 +45,10 @@
   uncommit = reset --soft HEAD^ --
   unamend  = reset --soft HEAD@{1} --
 
-  mop = !git branch --merged master | grep -v master | xargs -n 1 git branch -d
+  # Mop all merged local branches
+  mop = !git branch --merged master | grep -v master | xargs -n 1 git branch -D
+
+  # Wipe all local branches apart from master
+  wipe = !git branch | grep -v master | xargs -n 1 git branch -D
+
   aliases = !git config --get-regexp alias | cut -c 7- | sed 's| | => |'
