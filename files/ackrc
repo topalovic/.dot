@@ -22,15 +22,16 @@
 --pager=less -FXr
 
 # File types
---type-add=ruby:is:Gemfile
---type-add=ruby:is:Capfile
---type-add=ruby:is:Vagrantfile
+--type-add=css:ext:less,sass,scss
+--type-add=html:ext:slim
 --type-add=ruby:ext:ru,rabl,builder
---type-add=css:ext:sass,scss,less
+--type-add=ruby:is:Capfile
+--type-add=ruby:is:Gemfile
+--type-add=ruby:is:Vagrantfile
 --type-set=coffee:ext:coffee
---type-set=md:ext:md,markdown
---type-set=markdown:ext:md,markdown
 --type-set=log:ext:log
+--type-set=markdown:ext:md,markdown
+--type-set=md:ext:md,markdown
 
 # Ignored folders
 --ignore-dir=.bundle
