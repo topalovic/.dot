@@ -1,5 +1,4 @@
 ack-grep
-apt-spy
 apt-utils
 aptitude
 bsdutils
@@ -11,9 +10,7 @@ cowsay
 curl
 dconf-cli
 deluge
-dropbox
 emacs
-exaile
 ffmpeg
 findutils
 fortune-mod
@@ -44,6 +41,7 @@ mutt
 mysql-client
 mysql-server
 nano
+nautilus-dropbox
 netcat
 ngrep
 nodejs
@@ -52,14 +50,14 @@ postgresql
 postgresql-contrib
 psensor
 python
+r-base
 readline-common
 redis-server
 redis-tools
-rstudio
+rtorrent
 silversearcher-ag
 slack
 sqlite3
-sublime-text
 telnet
 tesseract-ocr
 tmux
@@ -71,8 +69,6 @@ usbutils
 uuid-runtime
 vagrant
 valgrind
-viber
-virtualbox
 vlc
 vnstat
 wget
