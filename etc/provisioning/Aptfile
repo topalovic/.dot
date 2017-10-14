@@ -10,6 +10,7 @@ cowsay
 curl
 dconf-cli
 deluge
+dnsutils
 emacs
 ffmpeg
 findutils
@@ -43,9 +44,14 @@ mysql-client
 mysql-server
 nano
 nautilus-dropbox
+ncdu
+net-tools
 netcat
 ngrep
 nodejs
+openssh-client
+openssh-server
+openvpn
 pgadmin3
 postgresql
 postgresql-contrib
