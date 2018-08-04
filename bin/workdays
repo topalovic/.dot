@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+#
+# $ workdays [month_number]
+
+require 'date'
+
+month = ARGV[0].to_i
+month = Time.now.month if month.zero?
+abort 'Argument must be between 1 and 12.' unless month.between?(1, 12)
+
+d1 = Date.new(Time.now.year, month, 1)
+d2 = Date.new(Time.now.year, month, -1)
+workdays = (d1..d2).reject { |day| day.saturday? || day.sunday? }
+
+puts "#{workdays.count} workdays in #{Date::MONTHNAMES[month]}."
