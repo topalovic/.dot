@@ -8,6 +8,9 @@
 [commit]
   gpgsign = true
 
+[remote "origin"]
+  prune = true
+
 [fetch]
   prune = true
 
@@ -31,24 +34,25 @@
   program = gpg2
 
 [alias]
-  b  = branch
-  co = checkout
-  ci = commit
-  pf = push --force-with-lease
-
   s  = status --short --branch
   st = status
-  l  = log --abbrev-commit --all --graph --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
-  ll = log --abbrev-commit
+
+  b = branch
+  current = rev-parse --abbrev-ref HEAD
+
+  co = checkout
+  ci = commit
+
+  pf = push --force-with-lease
 
   unstage  = reset HEAD --
   uncommit = reset --soft HEAD^ --
   unamend  = reset --soft HEAD@{1} --
 
-  # Mop all merged local branches
-  mop = !git branch --merged master | grep -v master | xargs -n 1 git branch -D
+  l  = log --abbrev-commit --all --graph --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+  ll = log --abbrev-commit
 
-  # Wipe all local branches apart from master
-  wipe = !git branch | grep -v master | xargs -n 1 git branch -D
+  # Sweep all local branches apart from master
+  broom = !git branch | grep -v master | xargs -n 1 git branch -D
 
   aliases = !git config --get-regexp alias | cut -c 7- | sed 's| | => |'
