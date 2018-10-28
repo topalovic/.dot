@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+# Transcodes FLAC files found in a given folder:
+# $ lossify [dir]
+#
+# TODO:
+# - MP3/AAC switch
+# - output switch
+
+set -e
+
+[[ ! -d "$1" ]] && echo "Usage: ${0##*/} [dir]" 1>&2 && exit 1
+
+in="$1"
+out="$in (lossy)"
+
+echo "Preparing the files..."
+
+# Make a copy of input
+rsync -r "$in/" "$out"
+
+# Lossify the output folder
+find "$out" -type f -name "*.flac" -print0 | \
+  xargs -I {} -0 -n1 -P5 sh -c 'set -e; f="{}"; echo Transcoding $f; ffmpeg -i "$f" -y -v 0 -qscale:a 0 "${f%.*}.mp3"; rm "$f"'
+
+echo "Done, output in ${out}"
