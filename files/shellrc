@@ -32,6 +32,9 @@ fi
 # Homebrew
 export HOMEBREW_NO_ANALYTICS=1
 
+# ripgrep
+export RIPGREP_CONFIG_PATH=~/.ripgreprc
+
 # rbenv & jenv
 [ `command -v rbenv` ] && eval "$(rbenv init -)"
 [ `command -v jenv` ] && eval "$(jenv init -)"
