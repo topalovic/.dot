@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+#
+# Counts days till given date. Supports anything Chronic can parse:
+#
+# $ till 2020-3-11
+# $ till jan 1
+# $ till friday
+
+require 'chronic'
+
+abort 'Usage: till [date]' if ARGV.empty?
+
+date = Chronic.parse(ARGV.join(' '))&.to_date
+abort 'No comprende :/' unless date
+
+diff = (date - Date.today).to_i.abs
+puts "Assuming #{date}, #{diff} day(s) away."
