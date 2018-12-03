@@ -18,8 +18,8 @@ fortune-mod
 fortunes
 fortunes-debian-hints
 gconf-editor
-ghc
 git
+glances
 gnuplot
 golang
 google-chrome-stable
@@ -58,7 +58,6 @@ postgresql
 postgresql-contrib
 psensor
 python
-r-base
 readline-common
 redis-server
 redis-tools
@@ -67,7 +66,6 @@ silversearcher-ag
 slack
 sqlite3
 telnet
-tesseract-ocr
 tmux
 tor
 traceroute
