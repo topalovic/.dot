@@ -2,8 +2,8 @@
 #
 # Don't forget to export RIPGREP_CONFIG_PATH=~/.ripgreprc
 
-# Keep it short
---max-columns=120
+# Keep it reasonable
+--max-columns=240
 
 # Case sensitive only if mixed case needle
 --smart-case
@@ -11,5 +11,5 @@
 # Follow symlinks
 --follow
 
-# This inhibits parallelism, so let's run without sorting
-# --sort-files
+# Note: this inhibits parallelism
+--sort-files
