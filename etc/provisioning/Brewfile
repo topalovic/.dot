@@ -4,7 +4,6 @@ tap 'caskroom/cask'
 
 cask 'xquartz'
 
-brew 'ack'
 brew 'aspell'
 brew 'bat'
 brew 'cloc'
