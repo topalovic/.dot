@@ -22,3 +22,6 @@ unalias rm &>/dev/null
 
 # Eliminate duplicate path entries
 typeset -U PATH
+
+# Tighten word boundaries
+export WORDCHARS=''
