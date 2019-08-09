@@ -26,19 +26,18 @@ fi
 # Create session
 tmux new-session -d -s $session
 
-# Setup main window
-tmux rename-window 'main'
+# Setup dev window
+tmux rename-window 'dev'
 tmux split-window -h
 tmux split-window -v
 tmux select-pane -t 1
 
 # Create other windows
-tmux new-window -t $session -n 'shell'
-tmux new-window -t $session -n 'remote'
 tmux new-window -t $session -n 'aux'
+tmux new-window -t $session -n 'shell'
 
-# Go back to main window
-tmux select-window -t $session:main
+# Go back to dev window
+tmux select-window -t $session:dev
 
 # Attach!
 tmux -2 attach-session -t $session

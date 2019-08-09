@@ -1,8 +1,8 @@
 {
   "groups": {
     "active_window_status": { "fg": "darkblue", "bg": "gray0" },
-    "activity_status": { "fg": "yellow", "bg": "gray0" },
-    "background": { "fg": "white", "bg": "gray0" },
+    "activity_status": { "fg": "red", "bg": "gray0" },
+    "background": { "fg": "gray9", "bg": "gray0" },
     "background:divider": { "fg": "gray5", "bg": "gray0" },
     "bell_status": { "fg": "red", "bg": "gray0" },
     "hostname": { "fg": "black", "bg": "gray9", "attrs": ["bold"] },
