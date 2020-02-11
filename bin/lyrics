@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 #
-# Display lyrics of the current iTunes track.
+# Display lyrics of the current macOS Music track.
 #
 # Props: https://gist.github.com/1549979
 
 set -e
 
 if [[ $OSTYPE != darwin* ]]; then
-  echo "Limited to iTunes on OS X for now. Sorry :-(" && exit 1
+  echo "Limited to macOS Music for now. Sorry :-(" && exit 1
 fi
 
-artist=$(osascript -e'tell application "iTunes"' -e'get artist of current track' -e'end tell' 2>&1)
-title=$(osascript -e'tell application "iTunes"' -e'get name of current track' -e'end tell' 2>&1)
+artist=$(osascript -e'tell application "Music"' -e'get artist of current track' -e'end tell' 2>&1)
+title=$(osascript -e'tell application "Music"' -e'get name of current track' -e'end tell' 2>&1)
 lyrics=$(curl -s -G "https://makeitpersonal.co/lyrics" --data-urlencode "artist=$artist" --data-urlencode "title=$title")
 
 out="\"$title\" by $artist\n$lyrics"
