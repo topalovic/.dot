@@ -5,7 +5,6 @@ build-essential
 bzip2
 cloc
 coreutils
-cowsay
 curl
 dconf-cli
 deluge
@@ -13,17 +12,12 @@ dnsutils
 emacs
 ffmpeg
 findutils
-fortune-mod
-fortunes
-fortunes-debian-hints
 gconf-editor
 git
-glances
 gnuplot
 golang
 google-chrome-stable
 gtypist
-guake
 htop
 httpie
 imagemagick
@@ -38,9 +32,6 @@ lm-sensors
 lsof
 mit-scheme
 mtr
-mutt
-mysql-client
-mysql-server
 nano
 nautilus-dropbox
 ncdu
@@ -52,7 +43,6 @@ openssh-client
 openssh-server
 openvpn
 pandoc
-pgadmin3
 postgresql
 postgresql-contrib
 psensor
@@ -60,9 +50,7 @@ python
 readline-common
 redis-server
 redis-tools
-rtorrent
 silversearcher-ag
-slack
 sqlite3
 telnet
 tmux
@@ -71,7 +59,6 @@ traceroute
 tree
 tzdata
 usbutils
-uuid-runtime
 vagrant
 valgrind
 vlc
