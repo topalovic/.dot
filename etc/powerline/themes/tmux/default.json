@@ -3,7 +3,7 @@
     "right": [
       {
         "function": "powerline.segments.common.sys.system_load",
-        "before": "⚡ ",
+        "before": "⎍ ",
         "args": {
           "format": "{avg:.2f}"
         }
@@ -21,7 +21,7 @@
       },
       {
         "function": "powerline.segments.common.net.hostname",
-        "before": "★ ",
+        "before": "λ ",
         "after": "",
         "args": {
           "exclude_domain": true
