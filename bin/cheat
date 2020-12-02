@@ -3,4 +3,4 @@
 # See http://cht.sh/
 # $ cheat lsof
 
-curl "cht.sh/$@"
+curl -q "cht.sh/$@"
