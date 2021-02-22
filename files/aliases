@@ -8,7 +8,6 @@ alias _="sudo"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias .....="cd ../../../.."
 
 alias db="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
@@ -23,7 +22,7 @@ mkcd() {
 alias g=git
 alias h=http
 alias d=docker
-alias v=vagrant
+alias dc=docker-compose
 alias t=tmux
 
 alias bc="bc -l"
@@ -37,5 +36,4 @@ alias week="date +%V"
 
 alias be="bundle exec"
 alias cop="bundle exec rubocop"
-alias cuke="bundle exec cucumber"
 alias rsp="bundle exec rspec"
