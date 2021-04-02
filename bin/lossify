@@ -17,7 +17,7 @@ out="$in (lossy)"
 echo "Preparing the files..."
 
 # Make a copy of input
-rsync -r "$in/" "$out"
+cp -R "$in" "$out"
 
 # Lossify the output folder
 find "$out" -type f -name "*.flac" -print0 | \
