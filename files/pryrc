@@ -10,18 +10,19 @@ end
 # Display project/folder name in prompt
 Pry.config.prompt_name = File.basename(Dir.pwd)
 
-# Display env in prompt if applicable
-if env = ENV["RAILS_ENV"] || ENV["RACK_ENV"] || ENV["ENVIRONMENT"]
+# Display Rails/Rack env in prompt
+if env = ENV["RAILS_ENV"] || ENV["RACK_ENV"]
   env = Pry::Helpers::Text.red(env)
-  prompt = Pry.config.prompt
-  Pry.config.prompt = [
-    proc { |*a| "[#{env}] #{prompt[0].call(*a)}" },
-    proc { |*a| "[#{env}] #{prompt[1].call(*a)}" }
-  ]
+  prompt = Pry::Prompt[:default]
+
+  Pry.config.prompt = Pry::Prompt.new(
+    'Rack',
+    'Rack prompt',
+    [
+      proc { |*a| "#{env} #{prompt.wait_proc.call(*a)}" },
+      proc { |*a| "#{env} #{prompt.incomplete_proc.call(*a)}" }
+    ]
+  )
 end
 
-Pry::Commands.alias_command "reload", "reload-method"
-
-if ENV["EMACS"]
-  Pry.config.correct_indent = false
-end
+Pry.config.correct_indent = false if ENV["EMACS"]
