@@ -11,7 +11,7 @@ fi
 # Powerline
 
 for pkg in {powerline-status,psutil,netifaces}; do
-  [ ! "$(pip freeze | grep $pkg)" ] && pip install $pkg
+  [ ! "$(pip3 freeze | grep $pkg)" ] && pip3 install $pkg
 done
 
 if [ ! -e ~/.config/powerline ]; then
