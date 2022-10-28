@@ -25,3 +25,7 @@ typeset -U PATH
 
 # Tighten word boundaries
 export WORDCHARS=''
+
+# asdf completions
+fpath=(${ASDF_DIR}/completions $fpath)
+autoload -Uz compinit && compinit
