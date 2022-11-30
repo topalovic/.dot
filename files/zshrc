@@ -26,6 +26,9 @@ typeset -U PATH
 # Tighten word boundaries
 export WORDCHARS=''
 
+# Emulate bash binding for ^U
+bindkey \^U backward-kill-line
+
 # asdf completions
 fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit && compinit
