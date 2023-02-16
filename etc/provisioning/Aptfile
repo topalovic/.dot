@@ -13,11 +13,9 @@ dnsutils
 emacs
 ffmpeg
 findutils
-gconf-editor
 git
 gnuplot
 golang
-google-chrome-stable
 gtypist
 htop
 httpie
@@ -68,5 +66,4 @@ wget
 whois
 wordnet
 xz-utils
-zenmap
 zsh
