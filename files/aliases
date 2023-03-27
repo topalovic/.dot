@@ -29,6 +29,7 @@ alias bc="bc -l"
 alias f="find . -iname"
 alias mkdir="mkdir -pv"
 
+alias ai=sgpt
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias week="date +%V"
 
