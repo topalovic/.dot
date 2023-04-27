@@ -51,7 +51,6 @@ brew 'zsh'
 
 cask 'alfred'
 cask 'deluge'
-cask 'dropbox'
 cask 'emacs'
 cask 'firefox'
 cask 'google-chrome'
