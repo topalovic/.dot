@@ -26,8 +26,8 @@ typeset -U PATH
 # Tighten word boundaries
 export WORDCHARS=''
 
-# Emulate bash binding for ^U
-bindkey \^U backward-kill-line
+# Emulate bash binding for ^u
+bindkey \^u backward-kill-line
 
 # Don't log not-found commands
 zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
@@ -35,3 +35,14 @@ zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 # asdf completions
 fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit && compinit
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # macOS
+[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+
+# fzf hijacks alt+c, rebind original
+bindkey "^[c" capitalize-word
+
+# See: https://github.com/ardnew/fzf/blob/master/ADVANCED.md
+export FZF_DEFAULT_OPTS="--layout=reverse --info=inline"

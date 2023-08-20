@@ -13,6 +13,7 @@ dnsutils
 emacs
 ffmpeg
 findutils
+fzf
 git
 gnuplot
 golang
