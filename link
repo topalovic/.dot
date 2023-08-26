@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+# Links all .dot/files to home folder.
+
+set -eu
+
+echo -e "linking dotfiles:\n"
+
+cd "$HOME/.dot/files"
+
+for file in *; do
+  ln -sfv "$HOME/.dot/files/$file" "$HOME/.$file"
+done
+
+echo -e "\ndone."

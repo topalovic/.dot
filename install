@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+# Installs dependencies and links dotfiles.
+
+set -eu
+
+# Prezto
+
+if [ ! -d ~/.zprezto ]; then
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
+fi
+
+# Powerline and dependencies
+
+for pkg in {powerline-status,psutil,netifaces}; do
+  [ ! "$(pip3 freeze | grep $pkg)" ] && pip3 install $pkg
+done
+
+if [ ! -e ~/.config/powerline ]; then
+  mkdir -p ~/.config
+  ln -ns ~/.dot/etc/powerline ~/.config/powerline
+fi
+
+# Dotfiles
+
+source ~/.dot/link

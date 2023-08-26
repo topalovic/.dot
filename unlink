@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
+#
+# Unlinks all .dot/files from home folder.
 
 set -eu
 
-for file in ~/.dot/files/*; do
-  basename=${file##*/}
-  target="$HOME/.$basename"
+echo -e "unlinking dotfiles:\n"
 
-  if [ -h "$target" ]; then
-    echo "* unlinking $target"
-    rm $target
-  fi
+cd "$HOME/.dot/files"
+
+for file in *; do
+  link="$HOME/.$file"
+  [ -L "$link" ] && rm -v $link
 done
+
+echo -e "\ndone."

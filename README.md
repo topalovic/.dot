@@ -6,7 +6,7 @@ Nikola's dotfiles
 Clone the repo to your home folder and run:
 
 ```sh
-$ .dot/setup
+$ .dot/install
 ```
 
 :facepunch: Bam. Done.
@@ -38,10 +38,8 @@ goodies.
 
 ## Cleanup
 
-To uninstall, just run the unlink script:
+To unlink all dotfiles, run:
 
 ```sh
 $ .dot/unlink
 ```
-
-This will clean all recognized dotfile links from `~`.
