@@ -1,35 +1,27 @@
 # Sourced in interactive shells.
 
+# Common shell config
+[ -f ~/.shellrc ] && source ~/.shellrc
+
 # Pick up the prompt
-if [[ -d "$HOME/.dot/etc/themes" ]]; then
-  fpath=( "$HOME/.dot/etc/themes" "${fpath[@]}" )
+if [[ -d ~/.dot/etc/themes ]]; then
+  fpath=( ~/.dot/etc/themes "${fpath[@]}" )
 fi
 
 # Prezto init
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-# Disable autocorrect guesses
-unsetopt CORRECT
+[ -s ~/.zprezto/init.zsh ] && source ~/.zprezto/init.zsh
 
 # Unalias prezto aliases
 unalias mv &>/dev/null
 unalias rm &>/dev/null
 
-# Common shell config
-[ -f ~/.shellrc ] && source ~/.shellrc
-
-# Eliminate duplicate path entries
-typeset -U PATH
+# Disable autocorrect guesses
+unsetopt CORRECT
 
 # Tighten word boundaries
 export WORDCHARS=''
 
-# Emulate bash binding for ^u
-bindkey \^u backward-kill-line
-
-# Don't log not-found commands
+# Don't log not found commands
 zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 
 # asdf completions
@@ -37,12 +29,20 @@ fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit && compinit
 
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # macOS
-[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
-[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+fzf_paths=(~/.fzf.zsh /usr/share/doc/fzf/examples/completion.zsh /usr/share/doc/fzf/examples/key-bindings.zsh)
+
+for fzf_path in ${fzf_paths[@]}; do
+  [ -f "$fzf_path" ] && source "$fzf_path"
+done
+
+# See https://github.com/ardnew/fzf/blob/master/ADVANCED.md
+export FZF_DEFAULT_OPTS="--layout=reverse --info=inline"
 
 # fzf hijacks alt+c, rebind original
 bindkey "^[c" capitalize-word
 
-# See: https://github.com/ardnew/fzf/blob/master/ADVANCED.md
-export FZF_DEFAULT_OPTS="--layout=reverse --info=inline"
+# Emulate bash binding for ^u
+bindkey \^u backward-kill-line
+
+# Eliminate duplicate path entries
+typeset -U PATH
