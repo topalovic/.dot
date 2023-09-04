@@ -45,7 +45,6 @@ brew 'watch'
 brew 'wget'
 brew 'wordnet'
 brew 'xz'
-brew 'zsh'
 
 cask 'alfred'
 cask 'deluge'
