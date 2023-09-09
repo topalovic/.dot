@@ -19,10 +19,9 @@ mkcd() {
 # Util
 
 alias g=git
-alias h=http
+alias s=rg
 alias t=tmux
 alias d=docker
-alias k=kubectl
 
 alias bc="bc -l"
 alias f="find . -iname"
