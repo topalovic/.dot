@@ -48,7 +48,7 @@ python
 readline-common
 redis-server
 redis-tools
-silversearcher-ag
+ripgrep
 sqlite3
 telnet
 texlive-full
