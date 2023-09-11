@@ -35,3 +35,6 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 # asdf tool version manager
 source ~/.asdf/asdf.sh
+
+# ripgrep
+export RIPGREP_CONFIG_PATH=~/.ripgreprc

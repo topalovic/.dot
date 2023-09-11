@@ -1,0 +1,18 @@
+# https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
+#
+# Don't forget to export RIPGREP_CONFIG_PATH=~/.ripgreprc
+
+# Case sensitive only if mixed case needle
+--smart-case
+
+# Follow symlinks
+--follow
+
+# Search hidden files and folders
+--hidden
+
+# ... but don't plumb git
+--glob=!.git/
+
+# Sort by file path (note: this inhibits parallelism)
+--sort=path
