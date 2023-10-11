@@ -19,7 +19,6 @@ gnuplot
 golang
 gtypist
 htop
-httpie
 imagemagick
 jq
 libreadline-dev
@@ -65,5 +64,6 @@ vnstat
 wget
 whois
 wordnet
+xh
 xz-utils
 zsh

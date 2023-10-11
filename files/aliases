@@ -19,6 +19,7 @@ mkcd() {
 # Util
 
 alias g=git
+alias h=xh
 alias s=rg
 alias t=tmux
 alias d=docker
