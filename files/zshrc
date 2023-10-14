@@ -5,11 +5,31 @@
 
 # Pick up the prompt
 if [[ -d ~/.dot/etc/themes ]]; then
-  fpath=( ~/.dot/etc/themes "${fpath[@]}" )
+  fpath=(~/.dot/etc/themes $fpath)
 fi
 
 # Prezto init
 [ -s ~/.zprezto/init.zsh ] && source ~/.zprezto/init.zsh
+
+# brew completions
+if type brew &>/dev/null; then
+  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+fi
+
+# asdf completions
+if type asdf &>/dev/null; then
+  fpath=(${ASDF_DIR}/completions $fpath)
+fi
+
+# fzf
+fzf_paths=(~/.fzf.zsh /usr/share/doc/fzf/examples/completion.zsh /usr/share/doc/fzf/examples/key-bindings.zsh)
+
+for fzf_path in ${fzf_paths[@]}; do
+  [ -f "$fzf_path" ] && source "$fzf_path"
+done
+
+# Don't log not found commands
+zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 
 # Unalias prezto aliases
 unalias mv &>/dev/null
@@ -20,20 +40,6 @@ unsetopt CORRECT
 
 # Tighten word boundaries
 export WORDCHARS=''
-
-# Don't log not found commands
-zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
-
-# asdf completions
-fpath=(${ASDF_DIR}/completions $fpath)
-autoload -Uz compinit && compinit
-
-# fzf
-fzf_paths=(~/.fzf.zsh /usr/share/doc/fzf/examples/completion.zsh /usr/share/doc/fzf/examples/key-bindings.zsh)
-
-for fzf_path in ${fzf_paths[@]}; do
-  [ -f "$fzf_path" ] && source "$fzf_path"
-done
 
 # See https://github.com/ardnew/fzf/blob/master/ADVANCED.md
 export FZF_DEFAULT_OPTS="--layout=reverse --info=inline"
@@ -46,3 +52,6 @@ bindkey \^u backward-kill-line
 
 # Eliminate duplicate path entries
 typeset -U PATH
+
+# Initialize completion
+autoload -Uz compinit && compinit
