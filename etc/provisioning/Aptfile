@@ -48,7 +48,9 @@ readline-common
 redis-server
 redis-tools
 ripgrep
+s-tui
 sqlite3
+stress
 telnet
 texlive-full
 tmux
