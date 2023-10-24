@@ -20,6 +20,7 @@
 
 [push]
   default = simple
+  autoSetupRemote = true
 
 [merge]
   # todo: merge tool
