@@ -49,6 +49,7 @@ redis-server
 redis-tools
 ripgrep
 s-tui
+shellcheck
 sqlite3
 stress
 telnet
