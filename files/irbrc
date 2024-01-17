@@ -6,3 +6,5 @@ begin
   exit
 rescue LoadError
 end
+
+IRB.conf[:USE_AUTOCOMPLETE] = false
