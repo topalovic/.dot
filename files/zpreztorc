@@ -16,5 +16,6 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'prompt'
 
+zstyle ':prezto:module:directory:alias' skip 'yes'
 zstyle ':prezto:module:editor' key-bindings 'emacs'
 zstyle ':prezto:module:prompt' theme 'nikola'
