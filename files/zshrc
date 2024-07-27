@@ -35,8 +35,11 @@ zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 unalias mv &>/dev/null
 unalias rm &>/dev/null
 
+# Dedupe history entries
+setopt hist_ignore_all_dups
+
 # Disable autocorrect guesses
-unsetopt CORRECT
+unsetopt correct
 
 # Tighten word boundaries
 export WORDCHARS=''
