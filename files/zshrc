@@ -43,9 +43,6 @@ setopt SHARE_HISTORY          # Share history between all sessions
 # Disable autocorrect guesses
 unsetopt CORRECT
 
-# Don't log not found commands
-zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
-
 # Unalias prezto aliases
 unalias mv &>/dev/null
 unalias rm &>/dev/null
