@@ -1,8 +1,0 @@
-sequence default {
-  utf_8;
-  uncgi;
-  safe;
-  wipeup { remove_trailing; };
-  max_length { length 128; };
-  lower;
-};
