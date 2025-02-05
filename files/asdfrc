@@ -1,5 +1,0 @@
-# Use plugin fallback to legacy version files (.ruby-version) if available.
-legacy_version_file = yes
-
-# Limit concurrency. Note that this is not observed by all plugins.
-concurrency = 4

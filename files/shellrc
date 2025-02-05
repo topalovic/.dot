@@ -29,9 +29,6 @@ fi
 # Private vars
 [ -f ~/.private/env ] && source ~/.private/env
 
-# asdf tool version manager
-[ -f ~/.asdf/asdf.sh ] && source ~/.asdf/asdf.sh
-
 # Homebrew
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1

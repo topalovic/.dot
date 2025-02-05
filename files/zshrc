@@ -16,11 +16,6 @@ if type brew &>/dev/null; then
   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 fi
 
-# asdf completions
-if type asdf &>/dev/null; then
-  fpath=(${ASDF_DIR}/completions $fpath)
-fi
-
 # fzf
 fzf_paths=(~/.fzf.zsh /usr/share/doc/fzf/examples/completion.zsh /usr/share/doc/fzf/examples/key-bindings.zsh)
 
