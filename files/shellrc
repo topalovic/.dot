@@ -11,6 +11,9 @@ for bin in {~/bin,~/.dot/bin,~/.local/bin,~/.cargo/bin,/usr/local/sbin,/usr/loca
   [ -d "$bin" ] && PATH="$PATH:$bin"
 done
 
+# mise-en-place
+export PATH="$HOME/.local/share/mise/shims:$PATH"
+
 # Editor
 export EDITOR="nano"
 export VISUAL="nano"
