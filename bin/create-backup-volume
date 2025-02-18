@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# Create a VeraCrypt backup volume.
+
+set -e
+
+name=backup-$(date +"%Y%m%d%H%M%S")
+
+veracrypt \
+  --text \
+  --create "$name" \
+  --size 10G \
+  --volume-type normal \
+  --filesystem exfat \
+  --encryption AES \
+  --hash sha-512 \
+  --pim 0 \
+  --keyfiles "" \
+  --random-source /dev/random
