@@ -1,0 +1,72 @@
+#!/usr/bin/env ruby
+#
+# Uses Ollama to rename images based on their content and an optional hint.
+#
+# rename-image --hint="some hint" --verbose IMG_*.jpg
+
+require 'optparse'
+require 'open3'
+require 'fileutils'
+
+def quote(str); "'#{str}'"; end
+
+options = {
+  model: 'llava:13b',
+  hint: nil,
+  dry_run: false,
+  verbose: false
+}
+
+parser = OptionParser.new do |opt|
+  opt.banner = "usage: #{$PROGRAM_NAME} [options] [files]"
+
+  opt.on('-h', '--hint=HINT', 'An additional hint to the model') do |h|
+    options[:hint] = " (hint: #{h})"
+  end
+  opt.on('-m', '--model=MODEL', 'Ollama model to use') do |m|
+    options[:model] = m
+  end
+  opt.on('-n', '--dry-run', 'Dry run, just print the suggested filename') do
+    options[:dry_run] = true
+  end
+  opt.on('-v', '--verbose', 'Verbose mode') do
+    options[:verbose] = true
+  end
+end
+
+begin
+  parser.parse!
+rescue OptionParser::InvalidOption => e
+  puts e
+  puts
+  puts parser
+  exit 1
+end
+
+instructions = [
+  'Suggest a concise filename for this image',
+  options[:hint],
+  ', use lowercase and hyphens instead of spaces:'
+].join
+
+ARGV.each do |file|
+  src = File.expand_path(file)
+  dir = File.dirname(src)
+  ext = File.extname(src)
+
+  abort "File #{src} doesn't exist, aborting." unless File.exist?(src)
+
+  cmd = ['ollama', 'run', options[:model], quote(instructions), quote(src)].join(' ')
+  puts cmd if options[:verbose]
+
+  stdout, stderr, status = Open3.capture3(cmd)
+  abort "Error: #{stderr}" unless status.success?
+
+  suggestion = stdout.strip.gsub(/\s+/, '-')
+  abort 'No suggestion' if suggestion.empty?
+
+  name = [File.basename(suggestion, File.extname(suggestion)), ext].join
+  dest = File.join(dir, name)
+
+  FileUtils.mv(src, dest, verbose: true, noop: options[:dry_run]) unless File.exist?(dest)
+end
