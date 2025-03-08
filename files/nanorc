@@ -1,9 +1,3 @@
-# Shut it
-set quiet
-
-# Display cursor position in status bar
-set const
-
 # Convert typed tabs to spaces
 set tabstospaces
 set tabsize 2
