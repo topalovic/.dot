@@ -9,7 +9,7 @@ name=backup-$(date +"%Y%m%d%H%M%S")
 veracrypt \
   --text \
   --create "$name" \
-  --size 10G \
+  --size 25G \
   --volume-type normal \
   --filesystem exfat \
   --encryption AES \
