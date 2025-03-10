@@ -3,4 +3,4 @@
 # Simple HTTP Server:
 # $ webserver [port]
 
-python -m SimpleHTTPServer "$@"
+python -m http.server "$@"
