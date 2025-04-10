@@ -9,6 +9,7 @@ curl
 dconf-cli
 deluge
 dnsutils
+dosbox
 emacs
 ffmpeg
 findutils
