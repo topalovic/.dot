@@ -1,3 +1,4 @@
---database=postgresql
---skip-test-unit
---skip-spring
+--skip-action-cable
+--skip-action-text
+--skip-kamal
+--skip-solid
