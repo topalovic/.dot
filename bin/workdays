@@ -2,6 +2,9 @@
 #
 # $ workdays [month_number]
 
+set -e
+set -o pipefail
+
 [[ $1 ]] && month="-m $1"
 
-cal $month | tail -n +3 | cut -c 4-17 | wc -w
+cal $month | tail -n +3 | cut -c 4-17 | wc -w | xargs
