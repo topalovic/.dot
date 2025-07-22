@@ -1,6 +1,9 @@
 [include]
   path = ~/.private/gitconfig
 
+[init]
+  defaultBranch = main
+
 [core]
   editor = ~/.dot/bin/et
   excludesfile = ~/.gitignore
