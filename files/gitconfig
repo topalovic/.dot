@@ -16,6 +16,7 @@
 
 [fetch]
   prune = true
+  pruneTags = true
 
 [pull]
   ff = only
@@ -30,6 +31,7 @@
 
 [rebase]
   autosquash = true
+  updateRefs = true
 
 [grep]
   lineNumber = true
