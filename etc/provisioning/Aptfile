@@ -38,6 +38,7 @@ net-tools
 netcat
 ngrep
 nodejs
+nvme-cli
 openssh-client
 openssh-server
 openvpn
@@ -52,6 +53,7 @@ redis-tools
 ripgrep
 s-tui
 shellcheck
+smartmontools
 sqlite3
 stress
 telnet
