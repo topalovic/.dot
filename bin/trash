@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -eu
+
+if [ -f /usr/bin/trash ]; then
+  # macOS
+  /usr/bin/trash "$@"
+elif hash gio; then
+  # GNOME
+  gio trash "$@"
+else
+  rm -r "$@"
+fi
