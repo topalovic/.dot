@@ -1,0 +1,8 @@
+# CAUTION: libedit will stop reading this file at a *blank* line!
+#
+# Emacs bindings.
+bind -e
+#
+# Search history similar to readline.
+bind "^r" em-inc-search-prev
+bind "^s" em-inc-search-next
