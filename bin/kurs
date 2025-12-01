@@ -2,10 +2,13 @@
 #
 # Display current exchange rates for RSD.
 #
-# Get your API key at kursna-lista.info/kursna-lista-api
+# $ kurs [eur|usd|chf|...]
 
 set -e
 set -o pipefail
 
-[ -z "$API_KEY_KURSNA_LISTA" ] && echo "Need to set API_KEY_KURSNA_LISTA" && exit 1
-curl -Ssf "https://api.kursna-lista.info/$API_KEY_KURSNA_LISTA/kursna_lista/json" | jq '.result | {eur,usd}'
+[[ $1 ]] && CURRENCY="$1"
+CURRENCY=${CURRENCY:-eur}
+
+curl -Ssf "https://kurs.resenje.org/api/v1/currencies/$CURRENCY/rates/today" \
+  | jq '{code,date_from,exchange_buy,exchange_middle,exchange_sell}'
