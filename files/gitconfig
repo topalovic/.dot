@@ -49,6 +49,8 @@
   co = checkout
   ci = commit
 
+  amend = commit --amend --no-edit --reset-author
+
   pf = push --force-with-lease
 
   unstage  = reset HEAD --
