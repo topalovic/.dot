@@ -37,7 +37,10 @@
   lineNumber = true
 
 [gpg]
-  program = gpg2
+  format = ssh
+
+[gpg "ssh"]
+  allowedSignersFile = ~/.ssh/allowed_signers
 
 [alias]
   s  = status --short --branch
