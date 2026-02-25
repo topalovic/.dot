@@ -3,14 +3,6 @@
 # Common shell config
 [ -f ~/.shellrc ] && source ~/.shellrc
 
-# Pick up the prompt
-if [[ -d ~/.dot/etc/themes ]]; then
-  fpath=(~/.dot/etc/themes $fpath)
-fi
-
-# Prezto init
-[ -s ~/.zprezto/init.zsh ] && source ~/.zprezto/init.zsh
-
 # brew completions
 if type brew &>/dev/null; then
   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
@@ -37,10 +29,6 @@ setopt SHARE_HISTORY          # Share history between all sessions
 
 # Disable autocorrect guesses
 unsetopt CORRECT
-
-# Unalias prezto aliases
-unalias mv &>/dev/null
-unalias rm &>/dev/null
 
 # Tighten word boundaries
 export WORDCHARS=''
