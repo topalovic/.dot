@@ -3,18 +3,6 @@
 # Common shell config
 [ -f ~/.shellrc ] && source ~/.shellrc
 
-# brew completions
-if type brew &>/dev/null; then
-  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-fi
-
-# fzf
-fzf_paths=(~/.fzf.zsh /usr/share/doc/fzf/examples/completion.zsh /usr/share/doc/fzf/examples/key-bindings.zsh)
-
-for fzf_path in ${fzf_paths[@]}; do
-  [ -f "$fzf_path" ] && source "$fzf_path"
-done
-
 setopt APPEND_HISTORY         # Append to history file
 setopt HIST_EXPIRE_DUPS_FIRST # Expire a duplicate event first when trimming history
 setopt HIST_FIND_NO_DUPS      # Do not display a previously found event
@@ -31,18 +19,6 @@ setopt SHARE_HISTORY          # Share history between all sessions
 # Disable autocorrect guesses
 unsetopt CORRECT
 
-# Tighten word boundaries
-export WORDCHARS=''
-
-# See https://github.com/ardnew/fzf/blob/master/ADVANCED.md
-export FZF_DEFAULT_OPTS="--layout=reverse --info=inline"
-
-# fzf hijacks alt+c, rebind original
-bindkey "^[c" capitalize-word
-
-# Emulate bash binding for ^u
-bindkey \^u backward-kill-line
-
 # Eliminate duplicate path entries
 typeset -U PATH
 typeset -U FPATH
@@ -52,6 +28,30 @@ autoload -Uz compinit && compinit
 
 # Use generic completions for some utilities
 compdef _gnu_generic rustc sidekiq byk
+
+# brew completions
+if type brew &>/dev/null; then
+  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+fi
+
+# fzf
+fzf_paths=(~/.fzf.zsh /usr/share/doc/fzf/examples/completion.zsh /usr/share/doc/fzf/examples/key-bindings.zsh)
+
+for fzf_path in ${fzf_paths[@]}; do
+  [ -f "$fzf_path" ] && source "$fzf_path"
+done
+
+# Emulate bash binding for ^u
+bindkey \^u backward-kill-line
+
+# fzf hijacks alt+c, rebind original
+bindkey "^[c" capitalize-word
+
+# fzf, see https://github.com/ardnew/fzf/blob/master/ADVANCED.md
+export FZF_DEFAULT_OPTS="--layout=reverse --info=inline"
+
+# Tighten word boundaries
+export WORDCHARS=''
 
 # Minimalist prompt
 git_prompt() {
