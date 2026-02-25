@@ -25,6 +25,7 @@ setopt HIST_NO_STORE          # Don't store history commands
 setopt HIST_SAVE_NO_DUPS      # Do not write a duplicate event to the history file
 setopt HIST_VERIFY            # Do not execute immediately upon history expansion
 setopt INC_APPEND_HISTORY     # Write to the history file immediately, not when the shell exits
+setopt PROMPT_SUBST           # Allow expansion in prompt string
 setopt SHARE_HISTORY          # Share history between all sessions
 
 # Disable autocorrect guesses
@@ -51,3 +52,20 @@ autoload -Uz compinit && compinit
 
 # Use generic completions for some utilities
 compdef _gnu_generic rustc sidekiq byk
+
+# Minimalist prompt
+git_prompt() {
+  BRANCH=$(git branch --show-current 2> /dev/null)
+
+  if [[ -n $BRANCH ]]; then
+    if [ -z "$(git status --porcelain)" ]; then
+      DIRTY="%F{green}✔"
+    else
+      DIRTY="%F{red}✗"
+    fi
+
+    echo -n " %F{green}($BRANCH $DIRTY%F{green})"
+  fi
+}
+
+PS1='%~$(git_prompt)%F{reset} » '
