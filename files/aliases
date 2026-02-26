@@ -1,6 +1,5 @@
 # Sudo
 
-alias sudo="sudo " # Enable aliases to be sudoed
 alias _="sudo"
 
 # Navigation
@@ -9,14 +8,34 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
+if [[ "$OSTYPE" == darwin* ]]; then
+  alias ls="ls -G"
+else
+  alias ls="ls --color=auto --group-directories-first"
+fi
+
+alias l="ls -1A"   # one column + hidden files
+alias ll="ls -lh"  # human readable sizes
+alias la="ls -lhA" # human readable sizes + hidden files
+
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
+
+alias mkdir="mkdir -pv"
 
 mkcd() {
   test -d "$1" || mkdir -p -- "$1" && cd -P -- "$1"
 }
 
 # Util
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  alias o="open"
+else
+  alias o="xdg-open"
+fi
+
+alias e='${(z)VISUAL:-${(z)EDITOR}}'
 
 alias g=git
 alias h=xh
@@ -26,7 +45,6 @@ alias d=docker
 
 alias bc="bc -l"
 alias f="find . -iname"
-alias mkdir="mkdir -pv"
 
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias week="date +%V"
