@@ -70,3 +70,6 @@ git_prompt() {
 }
 
 PS1='%~$(git_prompt)%F{reset} » '
+
+# Echo failed exit status on the right
+RPROMPT='%(?,,%F{red}$?)%f'
