@@ -3,8 +3,13 @@
 # Common shell config
 [ -f ~/.shellrc ] && source ~/.shellrc
 
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=10000
+export SAVEHIST=10000
+
 setopt APPEND_HISTORY         # Append to history file
 setopt AUTO_CD                # If command cannot be executed, try to cd
+setopt EXTENDED_HISTORY       # Record the time of each command
 setopt HIST_EXPIRE_DUPS_FIRST # Expire a duplicate event first when trimming history
 setopt HIST_FIND_NO_DUPS      # Do not display a previously found event
 setopt HIST_IGNORE_ALL_DUPS   # Delete an old recorded event if a new event is a duplicate
