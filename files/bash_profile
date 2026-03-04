@@ -1,1 +1,3 @@
+# -*-sh-*-
+
 [ -f ~/.bashrc ] && source ~/.bashrc
