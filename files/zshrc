@@ -7,9 +7,15 @@ export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000
 export SAVEHIST=10000
 
+setopt ALWAYS_TO_END          # Move cursor to the end of a completed word
 setopt APPEND_HISTORY         # Append to history file
 setopt AUTO_CD                # If command cannot be executed, try to cd
-setopt EXTENDED_HISTORY       # Record the time of each command
+setopt AUTO_LIST              # Automatically list choices on ambiguous completion
+setopt AUTO_MENU              # Show completion menu on a successive tab press
+setopt AUTO_PARAM_SLASH       # If completed parameter is a directory, add a trailing slash
+setopt COMPLETE_IN_WORD       # Complete from both ends of a word
+setopt EXTENDED_GLOB          # Needed for file modification glob modifiers with compinit
+setopt EXTENDED_HISTORY       # Record the timestamp of each command
 setopt HIST_EXPIRE_DUPS_FIRST # Expire a duplicate event first when trimming history
 setopt HIST_FIND_NO_DUPS      # Do not display a previously found event
 setopt HIST_IGNORE_ALL_DUPS   # Delete an old recorded event if a new event is a duplicate
@@ -19,6 +25,7 @@ setopt HIST_NO_STORE          # Don't store history commands
 setopt HIST_SAVE_NO_DUPS      # Do not write a duplicate event to the history file
 setopt HIST_VERIFY            # Do not execute immediately upon history expansion
 setopt INC_APPEND_HISTORY     # Write to the history file immediately, not when the shell exits
+setopt PATH_DIRS              # Perform path search even on command names with slashes
 setopt PROMPT_SUBST           # Allow expansion in prompt string
 setopt SHARE_HISTORY          # Share history between all sessions
 
@@ -30,7 +37,40 @@ typeset -U PATH
 typeset -U FPATH
 
 # Initialize completion
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
+
+# Template:
+# zstyle ':completion:function:completer:command:argument:tag' <style> <values>
+
+zstyle ':completion:*' use-cache on
+zstyle ':completion::complete:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache"
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*:matches' group 'yes'
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*:options' auto-description '%d'
+zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f'
+zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f'
+zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
+zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' verbose yes
+
+# Fuzzy match
+zstyle ':completion:*' completer _extensions _complete _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' 'm:{[:upper:]}={[:lower:]}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+# Files
+zstyle ':completion:*' file-list all
+
+# Kill
+zstyle ':completion:*:*:*:*:processes' command 'ps -u $LOGNAME -o pid,user,command -w'
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:*:kill:*' force-list always
+zstyle ':completion:*:*:kill:*' insert-ids single
 
 # Use generic completions for some utilities
 compdef _gnu_generic rustc sidekiq byk
