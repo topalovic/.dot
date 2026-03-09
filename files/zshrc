@@ -101,21 +101,24 @@ export FZF_DEFAULT_OPTS="--layout=reverse --info=inline"
 export WORDCHARS=''
 
 # Minimalist prompt
-git_prompt() {
+precmd() {
   BRANCH=$(git branch --show-current 2> /dev/null)
 
-  if [[ -n $BRANCH ]]; then
-    if [ -z "$(git status --porcelain)" ]; then
-      DIRTY="%F{green}✔"
-    else
-      DIRTY="%F{red}✗"
-    fi
-
-    echo -n " %F{green}($BRANCH $DIRTY%F{green})"
+  if [[ -z "$BRANCH" ]]; then
+    GIT_STATUS_INFO=""
+    return
   fi
+
+  if [[ -z "$(git status --porcelain)" ]]; then
+    DIRTY="%F{green}✔"
+  else
+    DIRTY="%F{red}✗"
+  fi
+
+  GIT_STATUS_INFO=" %F{green}($BRANCH $DIRTY%F{green})"
 }
 
-PS1='%~$(git_prompt)%F{reset} » '
+PS1='%~${GIT_STATUS_INFO}%f » '
 
 # Echo failed exit status on the right
 RPROMPT='%(?,,%F{red}$?)%f'
