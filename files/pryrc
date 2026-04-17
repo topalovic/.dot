@@ -1,11 +1,4 @@
-#!/usr/bin/env ruby
-
-# My playground setup
-begin
-  require "duplo"
-  include Duplo
-rescue LoadError
-end
+# -*-ruby-*-
 
 # Display project/folder name in prompt
 Pry.config.prompt_name = File.basename(Dir.pwd)
