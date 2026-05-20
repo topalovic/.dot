@@ -26,6 +26,7 @@ setopt HIST_IGNORE_SPACE      # Do not record an event starting with a space
 setopt HIST_NO_STORE          # Don't store history commands
 setopt HIST_SAVE_NO_DUPS      # Do not write a duplicate event to the history file
 setopt INC_APPEND_HISTORY     # Write to the history file immediately, not when the shell exits
+setopt INTERACTIVE_COMMENTS   # Handy for greppable history bookmarks
 setopt PATH_DIRS              # Perform path search even on command names with slashes
 setopt PROMPT_SUBST           # Allow expansion in prompt string
 setopt SHARE_HISTORY          # Share history between all sessions
