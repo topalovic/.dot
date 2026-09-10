@@ -34,9 +34,13 @@ fi
 # Private vars
 [ -f ~/.private/env ] && source ~/.private/env
 
-# Homebrew
-export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_NO_AUTO_UPDATE=1
-
 # ripgrep
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
+
+# Homebrew
+if [[ "$OSTYPE" == darwin* ]]; then
+  export HOMEBREW_NO_ANALYTICS=1
+  export HOMEBREW_NO_ASK=1
+  export HOMEBREW_NO_AUTO_UPDATE=1
+  export HOMEBREW_NO_ENV_HINTS=1
+fi
