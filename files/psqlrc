@@ -11,3 +11,7 @@
 -- Prompt
 \set PROMPT1 '%n@%M:%>%x %/# '
 \set PROMPT2 ''
+
+-- Separate history for each database.
+\set HISTFILE ~/.local/share/psql/history_ :DBNAME
+\set HISTSIZE 9999
