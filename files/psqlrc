@@ -7,3 +7,7 @@
 
 -- Switch to expanded table format if needed.
 \x auto
+
+-- Prompt
+\set PROMPT1 '%n@%M:%>%x %/# '
+\set PROMPT2 ''
